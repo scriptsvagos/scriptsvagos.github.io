@@ -1,0 +1,15 @@
+
+#!/bin/bash
+
+#cosas necesarias para compilar
+sudo apt-get install linux-headers-$(uname -r) build-essential checkinstall make automake cmake autoconf git git-core pkg-config dpkg 
+
+
+
+#extras
+sudo apt install neofetch sakura gvfs-backends geany 
+
+
+##en caso de la laptop touchpad quita el # para instalarlo
+
+#sudo apt install xserver-xorg-imput-synaptics

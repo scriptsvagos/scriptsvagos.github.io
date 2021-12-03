@@ -1,0 +1,18 @@
+#!/bin/bash
+
+mkdir adapirutheme
+cd adapirutheme
+wget http://http.us.debian.org/debian/pool/main/a/adapta-gtk-theme/adapta-gtk-theme_3.95.0.11-1_all.deb
+wget http://http.us.debian.org/debian/pool/main/p/papirus-icon-theme/papirus-icon-theme_20190203-1_all.deb
+clear && echo "ahora pedira permisos root para poder instalar el tema/icono" && sleep 3s && clear
+sudo apt update
+clear && echo "si se tilda la instalacion es normal por murrine, sea paciente" && sleep 3s 
+sudo apt install gtk2-engines-murrine gtk2-engines-pixbuf fonts-noto fonts-roboto hicolor-icon-theme
+sudo dpkg -i *
+clear && echo "aplicando tema" && sleep 3s
+xfconf-query -c xsettings -p /Net/ThemeName -s "Adapta"
+xfconf-query -c xfwm4 -p /general/theme -s "Adapta"
+clear && echo "aplicando iconos" && sleep 3s
+xfconf-query -c xsettings -p /Net/IconThemeName -s "Papirus"
+clear && echo "Instalacion finalizada!" && sleep 3s && clear
+exit
