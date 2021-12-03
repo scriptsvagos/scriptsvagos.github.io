@@ -167,7 +167,7 @@ Instalar Grub:
 
 Instalar grub en la particion uefi /boot:
 
-    grub-install grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=grub --recheck
+    grub-install grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=grub
 
 por ultimo:
 
