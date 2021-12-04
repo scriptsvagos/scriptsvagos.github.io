@@ -142,7 +142,7 @@ Si queremos agregarle contraseña al usuario root seria:
 
 En mi caso utilizare un usuario nuevo que tenga esos privilegios, entonces seria lo siguiente:
 
-    nano /etc/sudoers
+    # nano /etc/sudoers
 
 dentro del archivo sudoers descomentaremos el parámetro     `#%wheel ALL=(ALL) ALL`, quedando así:
 
@@ -153,8 +153,8 @@ guardamos y cerramos del archivo.
 
 Ahora crearemos el nuevo usuario con privilegios administrador de la siguiente manera:
 
-    useradd -mG wheel tunombredeusuario
-    passwd tunombredeusuario
+    # useradd -mG wheel tunombredeusuario
+    # passwd tunombredeusuario
 <p>&nbsp;</p>
 
 
@@ -162,30 +162,51 @@ Ahora crearemos el nuevo usuario con privilegios administrador de la siguiente m
 
 Instalar Grub:
     
-    pacman -S grub os-prober efibootmgr
+    # pacman -S grub os-prober efibootmgr
 
 
 Instalar grub en la particion uefi /boot:
 
-    grub-install grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=grub
+    # grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=grub
 
 por ultimo:
 
-    grub-mkconfig -o /boot/grub/grub.cfg
-
+    # grub-mkconfig -o /boot/grub/grub.cfg
+<p>&nbsp;</p>
 
 
 ### **Post Instalación**
 
+Habilitar e iniciar NetworkManager:
+
+    # systemctl enable NetworkManager
+    # systemctl start NetworkManager
+
+
+
 Instalar xorg:
 
-    # pacman -S xorg
+    # pacman -S xorg xorg-apps
 
 Xfce4:
 
-    # pacman -S xfce4 xfce4-goodies
+    # pacman -S xfce4 xfce4-goodies xdg-user-dirs
 
+Luego ejecutar xdg-user-dirs para crear/actualizar lasc carpetas de usuario:
+
+    xdg-user-dirs-update
 
 LightDM:
 
     # pacman -S lightdm lightdm-gtk-greeter
+
+
+Habilitar e iniciar LightDM:
+
+    # systemctl enable lightdm
+    # systemctl start lightdm
+
+<p>&nbsp;</p>
+
+
+## **Listo!, ya lo que queda de alli en adelante es asunto tuyo :v**
