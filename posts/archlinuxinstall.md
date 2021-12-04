@@ -186,7 +186,7 @@ Habilitar e iniciar NetworkManager:
 
 Instalar xorg:
 
-    # pacman -S xorg xorg-apps
+    # pacman -S xorg-server xorg-apps
 
 Xfce4:
 
