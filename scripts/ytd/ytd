@@ -1,7 +1,0 @@
-#!/bin/bash
-while :
-do
-clear && echo "\e[32mIntroduzca Link: \e[0m"
-read link
-sensible-browser https://sconverter.com/#url=$link
-done
